@@ -852,19 +852,51 @@ body {
   perspective: 1000px;
 }
 
+.toolkit-cards-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 480px;
+}
+
 .toolkit-image-card {
+  position: absolute;
+  width: 85%;
   background: var(--port-glass-bg);
   border: 1px solid var(--port-glass-border);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  transition: transform var(--transition-speed) var(--transition-ease), border-color var(--transition-speed);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: all var(--transition-speed) var(--transition-ease);
 }
 
-.toolkit-image-card:hover {
-  transform: translateY(-8px) rotate(1deg);
+.toolkit-image-card.card-1 {
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform: rotate(-2deg);
+}
+
+.toolkit-image-card.card-2 {
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  transform: rotate(3deg);
+  border-color: rgba(0, 242, 254, 0.2);
+}
+
+.toolkit-image-card.card-1:hover {
+  z-index: 5;
+  transform: scale(1.03) translateY(-10px) rotate(0deg);
   border-color: var(--port-accent);
   box-shadow: var(--port-glow);
+}
+
+.toolkit-image-card.card-2:hover {
+  z-index: 5;
+  transform: scale(1.03) translateY(-10px) rotate(0deg);
+  border-color: var(--port-accent-secondary);
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.4);
 }
 
 .toolkit-image-card .terminal-header {
@@ -1399,6 +1431,18 @@ body {
   .toolkit-container .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .toolkit-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    height: auto;
+    max-width: 100%;
+  }
+  .toolkit-image-card {
+    position: relative;
+    width: 100%;
+    transform: none !important;
+  }
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1477,6 +1521,9 @@ body {
     height: 240px;
   }
   .toolkit-container .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .toolkit-cards-wrapper {
     grid-template-columns: 1fr;
   }
 }
