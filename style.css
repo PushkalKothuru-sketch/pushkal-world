@@ -369,6 +369,15 @@ body {
   animation: pulseSkull 1.5s ease-in-out infinite alternate;
 }
 
+.hacked-avatar {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 4px rgba(255, 30, 39, 0.5));
+  animation: pulseSkull 1.5s ease-in-out infinite alternate;
+}
+
 .hacked-title {
   font-family: var(--font-mono);
   color: var(--hack-red);
