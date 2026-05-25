@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enter Pushkal's World - a cybersecurity demonstration, interactive experience, and developer portfolio.">
+  <meta name="author" content="Pushkal Kothuru">
+  <title>Pushkal's World</title>
+  
+  <!-- Google Fonts: Outfit (modern sans) & JetBrains Mono (monospace) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== GATE SCREEN ==================== -->
+  <section id="gate-screen" class="screen-section active">
+    <!-- Cosmic background particles (animated in CSS) -->
+    <div class="cosmic-bg">
+      <div class="stars"></div>
+      <div class="nebula-1"></div>
+      <div class="nebula-2"></div>
+    </div>
+    
+    <div class="gate-container">
+      <div class="portal-outer">
+        <div class="portal-inner">
+          <div class="portal-core"></div>
+        </div>
+      </div>
+      <div class="gate-content">
+        <h1 class="gate-title">Pushkal's World</h1>
+        <p class="gate-subtitle">A digital landscape of creativity, code, and security.</p>
+        <button id="btn-enter" class="btn btn-portal">
+          <span>Enter The World</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HACKED SCREEN ==================== -->
+  <section id="hacked-screen" class="screen-section hidden">
+    <!-- Matrix rain effect canvas -->
+    <canvas id="matrix-canvas"></canvas>
+    
+    <!-- Red overlay for alarm/glitch effect -->
+    <div class="scanlines"></div>
+    <div class="glitch-overlay"></div>
+    
+    <div class="hacked-container">
+      <div class="terminal-card">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="terminal-title">CRITICAL_SYSTEM_ALERT.sh</div>
+        </div>
+        
+        <div class="terminal-body">
+          <div class="warning-header">
+            <i data-lucide="skull" class="skull-icon"></i>
+            <h2 class="hacked-title">SYSTEM COMPROMISED</h2>
+            <p class="hacked-warning">YOUR FILES HAVE BEEN ENCRYPTED AND YOUR NETWORK ACCESS EXPLOITED.</p>
+          </div>
+          
+          <div class="terminal-console" id="terminal-console">
+            <!-- JavaScript will type out system details here -->
+          </div>
+          
+          <div class="terminal-action">
+            <button id="btn-why" class="btn btn-danger btn-pulse">
+              <span>Click Here To Know Why</span>
+              <i data-lucide="shield-alert"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PORTFOLIO SCREEN ==================== -->
+  <section id="portfolio-screen" class="screen-section hidden">
+    <div class="portfolio-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">
+          <span class="logo-symbol">&lt;/&gt;</span>
+          <span class="logo-text">Pushkal.dev</span>
+        </a>
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu" id="nav-toggle">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="hero-section">
+      <div class="hero-container">
+        <div class="hero-badge">
+          <span class="badge-icon">🛡️</span>
+          <span class="badge-text">Don't worry, you weren't actually hacked!</span>
+        </div>
+        
+        <h1 class="hero-title">Hey, I'm <br><span class="gradient-text">Siva Subrahmanya Pushkal Kothuru</span></h1>
+        <p class="hero-subtitle">Cybersecurity Analyst at Tata Consultancy Services (TCS) & Tech Explorer.</p>
+        
+        <p class="hero-description">
+          "Let's face it: the future is now. We are already living in a cyber society, so we need to secure it." That "hacked" screen was a friendly cybersecurity demonstration. I specialize in threat monitoring, vulnerability assessments, and secure infrastructure.
+        </p>
+        
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            <span>View My Work</span>
+            <i data-lucide="layout-grid"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/siva-subrahmanya-pushkal-kothuru-74453240a" target="_blank" rel="noopener" class="btn btn-outline">
+            <span>LinkedIn Profile</span>
+            <i data-lucide="linkedin"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="scroll-indicator">
+        <span>Scroll to Explore</span>
+        <i data-lucide="chevron-down" class="bounce"></i>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section-container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-card intro-card">
+          <div class="about-card-icon">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <h3>Who I Am</h3>
+          <p style="margin-bottom: 1rem;">
+            I am a cybersecurity professional with <strong>4+ years of experience</strong> in Vulnerability Management and SOC Operations at <strong>Tata Consultancy Services (TCS)</strong>.
+          </p>
+          <p style="margin-bottom: 1rem;">
+            Experienced in vulnerability lifecycle management including identification, validation, prioritization, remediation tracking, and reporting using industry standard frameworks like <strong>Rapid7 InsightVM</strong>, <strong>Nessus</strong>, and <strong>Qualys</strong>.
+          </p>
+          <p>
+            Equipped with hands-on exposure to <strong>IBM QRadar</strong>, <strong>Splunk</strong>, incident investigations, SIEM monitoring, false-positive analysis, security event triage, and operational reporting.
+          </p>
+        </div>
+        <div class="about-card core-card">
+          <div class="about-card-icon">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+          <h3>Current Focus</h3>
+          <p style="margin-bottom: 1.5rem;">
+            Currently pursuing my <strong>MSc Research in Computer & Systems Engineering</strong> at <strong>Technische Universität Ilmenau</strong>, Germany. I am actively exploring opportunities in Cybersecurity, Vulnerability Management, Cloud Security, and SOC Engineering.
+          </p>
+          <h4 style="color: var(--port-accent); margin-bottom: 0.75rem; font-size: 1rem;">Core Competencies:</h4>
+          <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.9rem; color: var(--port-text-secondary);">
+            <li><i data-lucide="check-circle" style="width: 14px; height: 14px; color: var(--port-accent); margin-right: 5px; vertical-align: middle;"></i> Vulnerability Assessment</li>
+            <li><i data-lucide="check-circle" style="width: 14px; height: 14px; color: var(--port-accent); margin-right: 5px; vertical-align: middle;"></i> Rapid7 InsightVM</li>
+            <li><i data-lucide="check-circle" style="width: 14px; height: 14px; color: var(--port-accent); margin-right: 5px; vertical-align: middle;"></i> CVSS Risk Prioritization</li>
+            <li><i data-lucide="check-circle" style="width: 14px; height: 14px; color: var(--port-accent); margin-right: 5px; vertical-align: middle;"></i> Incident Response</li>
+            <li><i data-lucide="check-circle" style="width: 14px; height: 14px; color: var(--port-accent); margin-right: 5px; vertical-align: middle;"></i> Security Monitoring</li>
+            <li><i data-lucide="check-circle" style="width: 14px; height: 14px; color: var(--port-accent); margin-right: 5px; vertical-align: middle;"></i> Dashboard Reporting</li>
+            <li><i data-lucide="check-circle" style="width: 14px; height: 14px; color: var(--port-accent); margin-right: 5px; vertical-align: middle;"></i> ServiceNow</li>
+            <li><i data-lucide="check-circle" style="width: 14px; height: 14px; color: var(--port-accent); margin-right: 5px; vertical-align: middle;"></i> SIEM Engineering</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section-container">
+      <h2 class="section-title">Education & Training</h2>
+      <div class="education-timeline">
+        <!-- Education 1 -->
+        <div class="timeline-item">
+          <div class="timeline-badge"><i data-lucide="graduation-cap"></i></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-date">1 Apr 2026 – Current</span>
+              <span class="timeline-location">Ilmenau, Germany</span>
+            </div>
+            <h3 class="timeline-title" style="margin-top: 0.5rem; margin-bottom: 0.25rem;">Masters in Research in Computer & Systems Engineering</h3>
+            <h4 class="timeline-institution" style="margin-bottom: 0.5rem;">
+              <a href="http://tu-ilmenau.de/" target="_blank" rel="noopener">Technical University of Ilmenau</a>
+            </h4>
+            <p class="timeline-details">
+              <strong>Field of study:</strong> Information Technology
+            </p>
+          </div>
+        </div>
+
+        <!-- Education 2 -->
+        <div class="timeline-item">
+          <div class="timeline-badge"><i data-lucide="award"></i></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-date">10 Jun 2017 – 8 Jun 2021</span>
+              <span class="timeline-location">Anantapur, India</span>
+            </div>
+            <h3 class="timeline-title" style="margin-top: 0.5rem; margin-bottom: 0.25rem;">Bachelor of Technology in Computer Science and Engineering</h3>
+            <h4 class="timeline-institution" style="margin-bottom: 0.5rem;">
+              <a href="http://skuniversity.ac.in/" target="_blank" rel="noopener">Sri Krishnadevaraya University</a>
+            </h4>
+            <p class="timeline-details">
+              <strong>Final grade:</strong> 76.16%
+            </p>
+          </div>
+        </div>
+
+        <!-- Education 3 -->
+        <div class="timeline-item">
+          <div class="timeline-badge"><i data-lucide="book-open"></i></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-date">11 Jun 2015 – 13 Jul 2016</span>
+              <span class="timeline-location">Nellore, India</span>
+            </div>
+            <h3 class="timeline-title" style="margin-top: 0.5rem; margin-bottom: 0.25rem;">High School Degree (12th standard)</h3>
+            <h4 class="timeline-institution" style="margin-bottom: 0.5rem;">
+              <a href="https://bie.ap.gov.in/" target="_blank" rel="noopener">Andhra Pradesh Board of Intermediate Education</a>
+            </h4>
+            <p class="timeline-details">
+              <strong>Final grade:</strong> 95.5%
+            </p>
+          </div>
+        </div>
+
+        <!-- Education 4 -->
+        <div class="timeline-item">
+          <div class="timeline-badge"><i data-lucide="book"></i></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-date">12 Jun 2013 – 13 Apr 2014</span>
+              <span class="timeline-location">Nellore, India</span>
+            </div>
+            <h3 class="timeline-title" style="margin-top: 0.5rem; margin-bottom: 0.25rem;">SSC (10th Standard)</h3>
+            <h4 class="timeline-institution" style="margin-bottom: 0.5rem;">Veda Vyasa English Medium High School</h4>
+            <p class="timeline-details">Secondary School Certificate studies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-container light-overlay">
+      <h2 class="section-title">My Toolkit</h2>
+      <div class="skills-grid">
+        <div class="skills-category">
+          <h3>Vulnerability & SIEM</h3>
+          <div class="skills-list">
+            <div class="skill-tag"><i data-lucide="shield"></i> Rapid7 InsightVM</div>
+            <div class="skill-tag">Nessus & Qualys</div>
+            <div class="skill-tag">IBM QRadar</div>
+            <div class="skill-tag">Splunk SIEM</div>
+            <div class="skill-tag">CVSS Risk Prioritization</div>
+            <div class="skill-tag">ServiceNow SecOps</div>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h3>SOC Operations & Defense</h3>
+          <div class="skills-list">
+            <div class="skill-tag">Incident Response</div>
+            <div class="skill-tag">Event Triage & Mitigation</div>
+            <div class="skill-tag">False-Positive Analysis</div>
+            <div class="skill-tag">Network Scanning (Nmap)</div>
+            <div class="skill-tag">Wireshark Traffic Audit</div>
+            <div class="skill-tag">Cloud & Infrastructure Security</div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3>Systems & Scripting</h3>
+          <div class="skills-list">
+            <div class="skill-tag">Python Scripting</div>
+            <div class="skill-tag">Bash & Shell Automation</div>
+            <div class="skill-tag">Linux / Unix Systems</div>
+            <div class="skill-tag">Git / GitHub Versioning</div>
+            <div class="skill-tag">HTML5 / CSS3 Layouts</div>
+            <div class="skill-tag">RESTful API Integration</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-category">Vulnerability Management</span>
+              <span class="project-date" style="font-size: 0.8rem; color: var(--port-text-muted);">Jun 2020 – Dec 2020</span>
+            </div>
+            <h3 class="project-title" style="margin-top: 0.5rem; margin-bottom: 0.75rem;">Enterprise Vulnerability Management Platform</h3>
+            <p class="project-description" style="margin-bottom: 1rem;">
+              Designed and deployed an enterprise vulnerability management framework using Rapid7 InsightVM for asset discovery and remediation.
+            </p>
+            <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--port-text-secondary); display: flex; flex-direction: column; gap: 0.4rem;">
+              <li><i data-lucide="chevron-right" style="width: 12px; height: 12px; color: var(--port-accent); margin-right: 4px; vertical-align: middle;"></i> Scanned & inventory-mapped 150+ endpoints</li>
+              <li><i data-lucide="chevron-right" style="width: 12px; height: 12px; color: var(--port-accent); margin-right: 4px; vertical-align: middle;"></i> Custom CVSS scoring risk prioritisation</li>
+              <li><i data-lucide="chevron-right" style="width: 12px; height: 12px; color: var(--port-accent); margin-right: 4px; vertical-align: middle;"></i> Automated onboarding using Python/PowerShell</li>
+            </ul>
+            <div class="project-tags">
+              <span>Rapid7</span>
+              <span>Python</span>
+              <span>PowerShell</span>
+              <span>VMware</span>
+              <span>CVSS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-category">SOC Operations</span>
+              <span class="project-date" style="font-size: 0.8rem; color: var(--port-text-muted);">Jan 2021 – Jun 2021</span>
+            </div>
+            <h3 class="project-title" style="margin-top: 0.5rem; margin-bottom: 0.75rem;">AI-Powered SOC Threat Detection Lab</h3>
+            <p class="project-description" style="margin-bottom: 1rem;">
+              Built a SIEM security monitoring lab for active threat analysis, log ingestion, intrusion detection, and incident response.
+            </p>
+            <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--port-text-secondary); display: flex; flex-direction: column; gap: 0.4rem;">
+              <li><i data-lucide="chevron-right" style="width: 12px; height: 12px; color: var(--port-accent); margin-right: 4px; vertical-align: middle;"></i> Log ingestion with Wazuh agents & ELK Stack</li>
+              <li><i data-lucide="chevron-right" style="width: 12px; height: 12px; color: var(--port-accent); margin-right: 4px; vertical-align: middle;"></i> Suricata IDS/Zeek traffic classification</li>
+              <li><i data-lucide="chevron-right" style="width: 12px; height: 12px; color: var(--port-accent); margin-right: 4px; vertical-align: middle;"></i> Simulated cyber attack & rule optimization</li>
+            </ul>
+            <div class="project-tags">
+              <span>Wazuh</span>
+              <span>ELK Stack</span>
+              <span>Suricata</span>
+              <span>Zeek</span>
+              <span>SIEM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-category">Cloud Security</span>
+              <span class="project-date" style="font-size: 0.8rem; color: var(--port-text-muted);">Jan 2020 – May 2020</span>
+            </div>
+            <h3 class="project-title" style="margin-top: 0.5rem; margin-bottom: 0.75rem;">Cloud Security Audit & Detection Engine</h3>
+            <p class="project-description" style="margin-bottom: 1rem;">
+              Engineered a cloud risk monitor scanning for S3 open buckets, privilege escalation vulnerabilities, and IAM rule drift.
+            </p>
+            <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--port-text-secondary); display: flex; flex-direction: column; gap: 0.4rem;">
+              <li><i data-lucide="chevron-right" style="width: 12px; height: 12px; color: var(--port-accent); margin-right: 4px; vertical-align: middle;"></i> Automated auditing using AWS CloudTrail & SDK</li>
+              <li><i data-lucide="chevron-right" style="width: 12px; height: 12px; color: var(--port-accent); margin-right: 4px; vertical-align: middle;"></i> IaC compliance validations via Terraform</li>
+              <li><i data-lucide="chevron-right" style="width: 12px; height: 12px; color: var(--port-accent); margin-right: 4px; vertical-align: middle;"></i> Exposure checks for S3, IAM, and Security Groups</li>
+            </ul>
+            <div class="project-tags">
+              <span>AWS</span>
+              <span>Terraform</span>
+              <span>IAM</span>
+              <span>CloudTrail</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-container contact-section">
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="contact-cards-container">
+        <!-- Email Card -->
+        <a href="mailto:sivasubrahmanyapushkalk@gmail.com" class="connect-card">
+          <div class="connect-card-icon">
+            <i data-lucide="mail"></i>
+          </div>
+          <h3>Email Me</h3>
+          <p>sivasubrahmanyapushkalk@gmail.com</p>
+        </a>
+
+        <!-- Location Card -->
+        <div class="connect-card">
+          <div class="connect-card-icon">
+            <i data-lucide="map-pin"></i>
+          </div>
+          <h3>Location</h3>
+          <p>Am Ehrenberg 6, Ilmenau 98693, Germany</p>
+        </div>
+
+        <!-- LinkedIn Card -->
+        <a href="https://www.linkedin.com/in/siva-subrahmanya-pushkal-kothuru-74453240a" target="_blank" rel="noopener" class="connect-card">
+          <div class="connect-card-icon">
+            <i data-lucide="linkedin"></i>
+          </div>
+          <h3>LinkedIn</h3>
+          <p>siva-subrahmanya-pushkal-kothuru</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 Siva Subrahmanya Pushkal Kothuru. Engineered with ❤️ & pure CSS.</p>
+    </footer>
+  </section>
+
+  <!-- Script File -->
+  <script src="app.js"></script>
+</body>
+</html>
