@@ -563,48 +563,65 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  perspective: 1000px;
 }
 
-/* Profile image frame */
+/* Profile image frame with 3D perspective */
 .profile-frame {
   position: relative;
   width: 320px;
   height: 320px;
-  border-radius: 50%;
-  padding: 8px;
+  border-radius: 30px;
+  padding: 6px;
   background: linear-gradient(135deg, var(--port-accent) 0%, var(--port-accent-secondary) 100%);
-  box-shadow: var(--port-glow);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
   animation: floatProfile 6s ease-in-out infinite alternate;
 }
 
 .profile-glowing-back {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 242, 254, 0.45) 0%, transparent 70%);
-  filter: blur(20px);
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  border-radius: 30px;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.4) 0%, transparent 70%);
+  filter: blur(25px);
   z-index: 1;
+  transform: translateZ(-20px);
 }
 
 .profile-img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: 24px;
   object-fit: cover;
-  background: #0f132a;
-  border: 4px solid #070913;
+  background: linear-gradient(to bottom, #111530, #070913);
+  border: 3px solid #070913;
   z-index: 2;
+  transform: translateZ(40px);
+  transition: transform 0.5s ease;
+}
+
+/* Hover 3D Tilt Effect */
+.hero-visual:hover .profile-frame {
+  animation-play-state: paused; /* Pause floating when tilting */
+  transform: rotateY(15deg) rotateX(-10deg) translateY(-5px);
+  box-shadow: -15px 25px 45px rgba(0, 242, 254, 0.25);
+}
+
+.hero-visual:hover .profile-img {
+  transform: translateZ(70px) scale(1.03);
 }
 
 @keyframes floatProfile {
-  from { transform: translateY(0); }
-  to { transform: translateY(-12px); }
+  from { transform: translateY(0) rotateX(0) rotateY(0); }
+  to { transform: translateY(-12px) rotateX(2deg) rotateY(-2deg); }
 }
 
 .hero-badge {
