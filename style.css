@@ -538,13 +538,73 @@ body {
   position: relative;
   z-index: 2;
   width: 90%;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 8rem 0 6rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Profile image frame */
+.profile-frame {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--port-accent) 0%, var(--port-accent-secondary) 100%);
+  box-shadow: var(--port-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatProfile 6s ease-in-out infinite alternate;
+}
+
+.profile-glowing-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.45) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: 1;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #0f132a;
+  border: 4px solid #070913;
+  z-index: 2;
+}
+
+@keyframes floatProfile {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
 }
 
 .hero-badge {
@@ -1099,6 +1159,19 @@ body {
   .hero-title { font-size: 3.2rem; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+  .profile-frame {
+    width: 280px;
+    height: 280px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1141,4 +1214,9 @@ body {
   .terminal-body { padding: 1.25rem; }
   .terminal-console { height: 180px; }
   .hacked-title { font-size: 1.4rem; }
+  
+  .profile-frame {
+    width: 240px;
+    height: 240px;
+  }
 }
