@@ -569,8 +569,8 @@ body {
 /* Profile image morphing blob layout */
 .profile-blob-container {
   position: relative;
-  width: 340px;
-  height: 380px;
+  width: 440px;
+  height: 485px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -578,9 +578,9 @@ body {
 
 .profile-blob-bg {
   position: absolute;
-  bottom: 20px;
-  width: 290px;
-  height: 290px;
+  bottom: 25px;
+  width: 370px;
+  height: 370px;
   background: linear-gradient(135deg, var(--port-accent) 0%, var(--port-accent-secondary) 100%);
   box-shadow: var(--port-glow);
   animation: morphBlob 10s ease-in-out infinite alternate, floatProfile 6s ease-in-out infinite alternate;
