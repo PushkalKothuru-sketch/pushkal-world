@@ -180,6 +180,7 @@ body {
 }
 
 .portal-inner {
+  position: relative;
   width: 100%;
   height: 100%;
   background: #05040a;
@@ -191,12 +192,27 @@ body {
 }
 
 .portal-core {
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(circle, rgba(225, 0, 255, 0.4) 0%, rgba(127, 0, 255, 0) 70%);
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(225, 0, 255, 0.45) 0%, rgba(127, 0, 255, 0) 75%);
   border-radius: 50%;
   filter: blur(5px);
   animation: pulseCore 3s ease-in-out infinite alternate;
+}
+
+.portal-hacker {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  z-index: 5;
+  animation: counterRotate 12s linear infinite;
+}
+
+@keyframes counterRotate {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
 }
 
 .gate-content {
